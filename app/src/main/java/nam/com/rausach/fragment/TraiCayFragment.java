@@ -79,7 +79,6 @@ public class TraiCayFragment extends Fragment {
 
         getSanPhamTheoIDLoaiSanPham();
         getData();
-
         rvTraiCay.setAdapter(traiCayAdapter);
         return view;
     }
