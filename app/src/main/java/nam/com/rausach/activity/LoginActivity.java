@@ -95,14 +95,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         session = sharedpreferences.getBoolean(Constant.SESSION_STATUS, false);
         id = sharedpreferences.getString(Constant.ID_LOCAL, null);
         username = sharedpreferences.getString(Constant.USERNAME_LOCAL, null);
-
-        if (session) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra(Constant.ID_LOCAL, idUser);
-            intent.putExtra(Constant.USERNAME_LOCAL, username);
-            finish();
-            startActivity(intent);
-        }
     }
 
     private void checkLogin(final String username, final String password) {
@@ -133,17 +125,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         editor.putBoolean(Constant.SESSION_STATUS, true);
                         editor.putString(Constant.ID_LOCAL, idUser);
                         editor.putString(Constant.USERNAME_LOCAL, username);
+                        editor.putString(Constant.LOGINFACEBOOK, "false");
                         editor.apply();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra(Constant.ID_LOCAL, idUser);
-                        intent.putExtra(Constant.USERNAME_LOCAL, username);
-                        intent.putExtra(Constant.SESSION_STATUS,true);
-                        intent.putExtra(Constant.LOGINFACEBOOK, "false");
                         finish();
                         startActivity(intent);
                     } else {
-                        Toast.makeText(getApplicationContext(),jObj.getString(Constant.TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), jObj.getString(Constant.TAG_MESSAGE), Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     // JSON error
@@ -270,15 +259,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             id = object.getString("id");
                             name = object.getString("name");
                             email = object.getString("email");
-                           // birthday = object.getString("birthday");
+                            // birthday = object.getString("birthday");
                             //image_url = "http://graph.facebook.com/" + id + "/picture?type=large";
 
-                            intent.putExtra(Constant.ID_USER, id);
-                            intent.putExtra(Constant.NAME, name);
-                            intent.putExtra(Constant.EMAIL, email);
-                           // intent.putExtra(Constant.BIRTHDAY, birthday);
-                            //intent.putExtra("image_url", image_url);
-                            intent.putExtra(Constant.LOGINFACEBOOK, "true");
+//                            intent.putExtra(Constant.ID_USER, id);
+//                            intent.putExtra(Constant.NAME, name);
+//                            intent.putExtra(Constant.EMAIL, email);
+//                            // intent.putExtra(Constant.BIRTHDAY, birthday);
+//                            //intent.putExtra("image_url", image_url);
+//                            intent.putExtra(Constant.LOGINFACEBOOK, "true");
+
+                            SharedPreferences.Editor editor=sharedpreferences.edit();
+                            editor.putString(Constant.ID_USER, id);
+                            editor.putString(Constant.NAME, name);
+                            editor.putString(Constant.EMAIL, email);
+                            editor.putString(Constant.LOGINFACEBOOK, "true");
+                            editor.apply();
 
                             //finish();
                             final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);

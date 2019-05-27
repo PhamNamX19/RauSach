@@ -27,13 +27,11 @@ public class SingUpActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
-        edName = findViewById(R.id.input_name);
+        edName = findViewById(R.id.input_confirm_password);
         edEmail = findViewById(R.id.input_email);
         btnSingup = findViewById(R.id.btn_signup);
         edPassword = findViewById(R.id.input_password);
         tvLoginLink = findViewById(R.id.link_login);
-
-
 
         btnSingup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +43,7 @@ public class SingUpActivity extends AppCompatActivity {
         tvLoginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(SingUpActivity.this,LoginActivity.class);
+                Intent intent = new Intent(SingUpActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

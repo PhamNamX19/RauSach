@@ -116,17 +116,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         searchView();
-        Bundle bundle=getIntent().getExtras();
-        if (bundle!=null){
-            String isFacebook=bundle.getString(Constant.LOGINFACEBOOK);
-            if (isFacebook!=null){
-                if (isFacebook.equals("false")){
-                    getInfoLocal();
-                }else {
-                    getInfoFacebook();
-                }
+        SharedPreferences sharedpreferences = getSharedPreferences(Constant.MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        String isFacebook = sharedpreferences.getString(Constant.LOGINFACEBOOK,null);
+        if (isFacebook != null) {
+            if (isFacebook.equals("false")) {
+                getInfoLocal();
+            } else {
+                getInfoFacebook();
             }
-
         }
     }
 
@@ -175,11 +172,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         birthday = sharedpreferences.getString(Constant.BIRTHDAY, null);
         loginFacebook = String.valueOf(sharedpreferences.getBoolean(Constant.BIRTHDAY, true));
 
-        name = getIntent().getStringExtra(Constant.NAME);
-        email = getIntent().getStringExtra(Constant.EMAIL);
-        birthday = getIntent().getStringExtra(Constant.BIRTHDAY);
-        id = getIntent().getStringExtra(Constant.ID_USER);
-        loginFacebook = getIntent().getStringExtra(Constant.LOGINFACEBOOK);
+//        name = getIntent().getStringExtra(Constant.NAME);
+//        email = getIntent().getStringExtra(Constant.EMAIL);
+//        birthday = getIntent().getStringExtra(Constant.BIRTHDAY);
+//        id = getIntent().getStringExtra(Constant.ID_USER);
+//        loginFacebook = getIntent().getStringExtra(Constant.LOGINFACEBOOK);
         tvProfileName.setText(name);
         Picasso.with(MainActivity.this)
                 .load("https://graph.facebook.com/" + id + "/picture?type=large")

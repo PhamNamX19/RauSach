@@ -135,6 +135,5 @@ public class TraiCayFragment extends Fragment {
         String myValue = this.getArguments().getString(Constant.SANPHAMTHEOID);
         Log.d("idSanPhamTheoID", myValue);
         idSanPhamTheoID = Integer.parseInt(myValue);
-
     }
 }
