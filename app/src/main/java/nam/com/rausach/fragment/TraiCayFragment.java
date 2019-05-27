@@ -48,7 +48,6 @@ public class TraiCayFragment extends Fragment {
     ArrayList<SanPham> arrTraiCay;
     int idSanPhamTheoID = 0;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
