@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:id="@+id/bgDanhMuc"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/duongvien_goctron"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgDanhMuc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDanhMuc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Trái cây"
+        android:textColor="#101010"
+        android:textSize="45px" />
+
+
+</LinearLayout>

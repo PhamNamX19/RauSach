@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/toolbarTrangChu"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    app:popupTheme="@style/AppTheme"
+                    app:theme="@style/ToolbarColoredBackArrow">
+
+                    <ImageView
+                        android:id="@+id/imgBack"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_back" />
+
+                    <ImageView
+                        android:id="@+id/imgMenuActionbar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_menu" />
+
+                    <EditText
+                        android:id="@+id/edSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="7"
+                        android:background="@drawable/background_search"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:hint="Tìm kiếm"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text" />
+
+                    <ImageView
+                        android:id="@+id/imgShopping"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/shopping" />
+
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true">
+
+                    <FrameLayout
+                        android:id="@+id/frSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/checkSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="vertical">
+
+                            <ViewFlipper
+                                android:id="@+id/viewFlipper"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp">
+
+                            </ViewFlipper>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#fff">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Danh mục sản phẩm"
+                                    android:textAllCaps="true"
+                                    android:textColor="#3d3c3c"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rvDanhMuc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#ffffff"
+                                android:orientation="horizontal"
+                                android:padding="2dp">
+
+                            </android.support.v7.widget.RecyclerView>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/background">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Sản phẩm mới"
+                                    android:textAllCaps="true"
+                                    android:textColor="#fff"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rvSanPhamMoi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#d1d1d1"
+                                android:orientation="horizontal"
+                                android:padding="2dp">
+
+                            </android.support.v7.widget.RecyclerView>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/background">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Dành cho bạn"
+                                    android:textAllCaps="true"
+                                    android:textColor="#fff"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rvSanPham"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#d1d1d1"
+                                android:padding="2dp">
+
+                            </android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+                    </FrameLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <android.support.design.widget.NavigationView
+                android:id="@+id/navigation_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+                    <!--header-->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/checkLogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:background="@drawable/background_menu"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/imgLogout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:src="@drawable/logout" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/imgProfile_image"
+                                android:layout_width="95dp"
+                                android:layout_height="95dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/user" />
+
+                            <TextView
+                                android:id="@+id/tvProfileName"
+                                style="?android:attr/textAppearanceMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Phạm Nam"
+                                android:textColor="#ffffff" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/checkOut"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:background="@drawable/background_menu"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/tvLogin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Đăng nhập | "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvRegister"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Đăng ký"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ListView
+                            android:id="@+id/lvMenuActionBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </ListView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.design.widget.NavigationView>
+        </android.support.v4.widget.DrawerLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#d1d1d1">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarSanPham"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/background">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_back"
+            android:id="@+id/btnBack"
+            />
+        <TextView
+            android:id="@+id/tvTitleSanPham"
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trái cây"
+            android:textColor="#ffffff"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgBanner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvSPFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#d1d1d1"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

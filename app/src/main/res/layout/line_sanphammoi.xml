@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="120dp"
+        android:layout_height="130dp"
+        app:cardCornerRadius="4dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgSanPham"
+                    android:layout_width="90dip"
+                    android:layout_height="90dip"
+                    android:layout_margin="5dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:id="@+id/tvTenSP"
+                        android:textSize="45px"
+                        android:text="Ten san pham"
+                        android:textColor="#101010"/>
+                    <!--android:gravity="center"/>-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:id="@+id/tvGiaSP"
+                        android:textSize="50px"
+                        android:text="Gia san pham"
+                        android:textColor="#ef4b4c"/>
+                    <!--android:gravity="center"/>-->
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top|right"
+                android:src="@drawable/ic_new" />
+
+        </FrameLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

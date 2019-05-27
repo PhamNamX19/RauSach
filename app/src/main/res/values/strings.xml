@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RauSach</string>
+    <string name="facebook_app_id">1567029400097114</string>
+    <string name="fb_login_protocol_scheme">fb1567029400097114</string>
+</resources>
