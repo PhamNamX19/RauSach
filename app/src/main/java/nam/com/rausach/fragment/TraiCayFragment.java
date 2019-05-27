@@ -131,7 +131,6 @@ public class TraiCayFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
 
-
     private void getSanPhamTheoIDLoaiSanPham() {
         String myValue = this.getArguments().getString(Constant.SANPHAMTHEOID);
         Log.d("idSanPhamTheoID", myValue);
