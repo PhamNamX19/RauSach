@@ -13,27 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity" android:launchMode="singleTop">
+        <activity android:name=".activity.DetailProductActivity"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity">
-
-        </activity>
+        <activity android:name=".activity.LoginActivity"></activity>
         <activity android:name=".activity.SingUpActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"
-            />
+            android:value="@string/facebook_app_id" />
         <meta-data
             android:name="android.app.default_searchable"
-            android:value=".MainActivity"/>
+            android:value=".MainActivity" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -51,7 +52,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ProfileActivity"/>
+        <activity android:name=".activity.ProfileActivity" />
     </application>
 
 </manifest>
