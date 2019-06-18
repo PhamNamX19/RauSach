@@ -3,12 +3,12 @@ package nam.com.rausach.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -24,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.android.volley.RequestQueue;
@@ -293,6 +292,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             FragmentContact fragmentContact=new FragmentContact();
                             transaction.replace(R.id.frameLayout, fragmentContact);
                             transaction.commit();
+                        } else {
+                            CheckConection.showNotifyConection(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối!");
+                        }
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case 7:
+                        if (CheckConection.haveNetworkConnection(getApplicationContext())) {
+                            Intent intent=new Intent(MainActivity.this,InformationActivity.class);
+                            startActivity(intent);
                         } else {
                             CheckConection.showNotifyConection(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối!");
                         }
