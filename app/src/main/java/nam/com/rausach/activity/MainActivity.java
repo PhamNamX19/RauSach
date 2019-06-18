@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.android.volley.RequestQueue;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ThitSachFragment thitSachFragment;
     GiaViFragment giaViFragment;
     ThuyHaiSanFragment thuyHaiSanFragment;
-    FragmentSearch fragmentSearch;
+    //FragmentSearch fragmentSearch;
 
     String name, email, birthday, id, loginFacebook;
 
@@ -110,6 +111,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CheckConection.showNotifyConection(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối!");
             finish();
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     @Override
@@ -138,12 +145,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     transaction = getSupportFragmentManager().beginTransaction();
                     Bundle bundle = new Bundle();
                     bundle.putString(Constant.KEY_SEARCH, edSearch.getText().toString());
+                    FragmentSearch fragmentSearch=new FragmentSearch();
                     fragmentSearch.setArguments(bundle);
-                    transaction.replace(R.id.frSearch, fragmentSearch);
+                    transaction.replace(R.id.frSearch, fragmentSearch, "fragS");
+                    transaction.addToBackStack(null);
                     if (checkSearch != null) {
                         checkSearch.setVisibility(View.GONE);
                     }
                     transaction.commit();
+                    return true;
                 }
                 return false;
             }
@@ -598,7 +608,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         thitSachFragment = new ThitSachFragment();
         giaViFragment = new GiaViFragment();
         thuyHaiSanFragment = new ThuyHaiSanFragment();
-        fragmentSearch = new FragmentSearch();
+        //fragmentSearch = new FragmentSearch();
     }
 
     public void sendData() {
@@ -635,6 +645,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imgBack:
                 transaction = getSupportFragmentManager().beginTransaction();
+                FragmentSearch fragmentSearch = (FragmentSearch) getSupportFragmentManager().findFragmentByTag("fragS");
                 transaction.remove(fragmentSearch);
                 transaction.commit();
                 edSearch.setText("");
@@ -652,7 +663,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.apply();
-                intentLogin();
+                checkLogin.setVisibility(View.GONE);
+                checkOut.setVisibility(View.VISIBLE);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             default:
                 break;

@@ -14,6 +14,7 @@ public class Constant {
     public static final String TAG_SUCCESS = "success";
     public static final String TAG_MESSAGE = "message";
     public final static String USERNAME_LOCAL = "username";
+    public final static String PASSWORD_LOCAL = "password";
     public final static String ID_LOCAL = "idUser";
     public static final String MY_SHARED_PREFERENCES = "my_shared_preferences";
     public static final String SESSION_STATUS = "session_status";
