@@ -46,6 +46,7 @@ import nam.com.rausach.adapter.DanhMucAdapter;
 import nam.com.rausach.adapter.LoaiSPAdapter;
 import nam.com.rausach.adapter.SanPhamAdapter;
 import nam.com.rausach.adapter.SanPhamMoiAdapter;
+import nam.com.rausach.fragment.FragmentContact;
 import nam.com.rausach.fragment.FragmentSearch;
 import nam.com.rausach.fragment.GiaViFragment;
 import nam.com.rausach.fragment.RauCuFragment;
@@ -280,6 +281,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             bundle.putString(Constant.SANPHAMTHEOID, String.valueOf(arrLoaiSanPham.get(i).getId()));
                             thuyHaiSanFragment.setArguments(bundle);
                             transaction.replace(R.id.frameLayout, thuyHaiSanFragment);
+                            transaction.commit();
+                        } else {
+                            CheckConection.showNotifyConection(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối!");
+                        }
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case 6:
+                        if (CheckConection.haveNetworkConnection(getApplicationContext())) {
+                            transaction = getSupportFragmentManager().beginTransaction();
+                            FragmentContact fragmentContact=new FragmentContact();
+                            transaction.replace(R.id.frameLayout, fragmentContact);
                             transaction.commit();
                         } else {
                             CheckConection.showNotifyConection(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối!");
