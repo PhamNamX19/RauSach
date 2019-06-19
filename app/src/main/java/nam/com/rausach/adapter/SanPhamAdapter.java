@@ -1,6 +1,7 @@
 package nam.com.rausach.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import nam.com.rausach.R;
+import nam.com.rausach.activity.DetailProductActivity;
 import nam.com.rausach.models.SanPham;
 
 public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ItemHolder> {
@@ -29,17 +31,17 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ItemHold
     @NonNull
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.line,null);
-        ItemHolder itemHolder=new ItemHolder(view);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.line, null);
+        ItemHolder itemHolder = new ItemHolder(view);
         return itemHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemHolder itemHolder, int i) {
-        SanPham sanPham=arrayListSanPham.get(i);
+        SanPham sanPham = arrayListSanPham.get(i);
         itemHolder.tvTenSP.setText(sanPham.getTenSP());
-        DecimalFormat decimalFormat=new DecimalFormat("###,###.###");
-        itemHolder.tvGiaSP.setText("Giá: "+decimalFormat.format(sanPham.getGiaSP())+"Đ");
+        DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+        itemHolder.tvGiaSP.setText("Giá: " + decimalFormat.format(sanPham.getGiaSP()) + "Đ");
         //itemHolder.tvGiaSP.setText("Giá: "+sanPham.getGiaSP()+"Đ");
         Picasso.with(context).load(sanPham.getImageSP())
                 .placeholder(R.drawable.noimage)
@@ -52,15 +54,27 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ItemHold
         return arrayListSanPham.size();
     }
 
-    public class ItemHolder extends RecyclerView.ViewHolder{
+    public class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView imgSP;
-        public TextView tvTenSP,tvGiaSP;
+        public TextView tvTenSP, tvGiaSP;
 
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
-            imgSP=itemView.findViewById(R.id.imgSanPham);
-            tvTenSP=itemView.findViewById(R.id.tvTenSP);
-            tvGiaSP=itemView.findViewById(R.id.tvGiaSP);
+            imgSP = itemView.findViewById(R.id.imgSanPham);
+            tvTenSP = itemView.findViewById(R.id.tvTenSP);
+            tvGiaSP = itemView.findViewById(R.id.tvGiaSP);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getLayoutPosition();
+            SanPham sanPham = arrayListSanPham.get(position);
+            Intent intent = new Intent(context, DetailProductActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("sanpham", sanPham);
+            context.startActivity(intent);
         }
     }
 }

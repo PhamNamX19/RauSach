@@ -4,4 +4,6 @@
     <string name="fb_login_protocol_scheme">fb1567029400097114</string>
     <string name="add_gio_hang">Thêm vào giỏ hàng</string>
     <string name="title_activity_information">Map</string>
+    <string name="thongtinsanpham">Thông tin sản phẩm</string>
+    <string name="themvaogiohang">Thêm vào giỏ hàng</string>
 </resources>

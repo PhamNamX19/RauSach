@@ -2,9 +2,8 @@ package nam.com.rausach.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -42,7 +41,6 @@ public class InformationActivity extends AppCompatActivity implements OnMapReady
             }
         });
     }
-
 
     /**
      * Manipulates the map once available.

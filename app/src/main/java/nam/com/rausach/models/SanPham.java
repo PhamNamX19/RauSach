@@ -1,6 +1,8 @@
 package nam.com.rausach.models;
 
-public class SanPham {
+import java.io.Serializable;
+
+public class SanPham implements Serializable {
     private int id;
     private String tenSP;
     private Integer giaSP;
