@@ -1,7 +1,7 @@
 package nam.com.rausach.utils;
 
 public class Server {
-    public static String localhost="192.168.1.67";
+    public static String localhost="172.25.18.16";
     public static String pathLoaiSP="http://"+localhost+"/server/getLoaiSP.php";
     public static String pathSanPhamMoi="http://"+localhost+"/server/getSanPhamMoi.php";
     public static String pathSanPham="http://"+localhost+"/server/getSanPham.php";

@@ -1,6 +1,7 @@
 package nam.com.rausach.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import nam.com.rausach.R;
+import nam.com.rausach.activity.DetailProductActivity;
 import nam.com.rausach.models.SanPham;
 
 public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.ItemHolder> {
@@ -51,7 +53,7 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.It
         return arrayListSanPhamMoi.size();
     }
 
-    public class ItemHolder extends RecyclerView.ViewHolder{
+    public class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ImageView imgSP;
         public TextView tvTenSP,tvGiaSP;
 
@@ -60,6 +62,17 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.It
             imgSP=itemView.findViewById(R.id.imgSanPham);
             tvTenSP=itemView.findViewById(R.id.tvTenSP);
             tvGiaSP=itemView.findViewById(R.id.tvGiaSP);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getLayoutPosition();
+            SanPham sanPham = arrayListSanPhamMoi.get(position);
+            Intent intent = new Intent(context, DetailProductActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("sanpham", sanPham);
+            context.startActivity(intent);
         }
     }
 }

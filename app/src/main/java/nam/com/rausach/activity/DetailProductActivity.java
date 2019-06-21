@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class DetailProductActivity extends AppCompatActivity {
     ViewPagerAdapter viewPagerAdapter;
     TabLayout tabs;
     private ImageView imageViewBack;
+    private Button btnThemVaoGioHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class DetailProductActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
         tabs.setupWithViewPager(viewPager);
         imageViewBack = findViewById(R.id.imageViewBack);
+        btnThemVaoGioHang = findViewById(R.id.btnThemVaoGioHang);
     }
 
     @Override

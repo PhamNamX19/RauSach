@@ -14,7 +14,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorRed">
+            android:background="@drawable/background">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -38,7 +38,7 @@
 
                 <ImageView
                     android:id="@+id/imageViewCart"
-                    android:src="@drawable/ic_add_shopping_cart_black_24dp"
+                    android:src="@drawable/shopping"
                     android:layout_marginLeft="160dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
