@@ -1,4 +1,4 @@
-package nam.com.rausach.models;
+package nam.com.rausach.controller;
 
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -13,8 +13,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PostSearch extends AsyncTask<String, Void, String> {
-
+public class InsertSPGioHang extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -25,7 +24,7 @@ public class PostSearch extends AsyncTask<String, Void, String> {
             connection.setDoInput(true);
             connection.setDoOutput(true);
             Uri.Builder uri = new Uri.Builder();
-            uri.appendQueryParameter("keyword", strings[1]);
+            uri.appendQueryParameter("sanphamgiohang", strings[1]);
             OutputStream outputStream = connection.getOutputStream();
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
             BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);

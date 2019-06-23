@@ -101,6 +101,7 @@ public class RauCuFragment extends Fragment {
                 String anhRauCu = "";
                 String moTa = "";
                 int idTheoLoaiSanPham = 0;
+                int soLuong = 0;
                 if (response != null) {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
@@ -112,7 +113,8 @@ public class RauCuFragment extends Fragment {
                             anhRauCu = jsonObject.getString("hinhanhsanpham");
                             moTa = jsonObject.getString("motasanpham");
                             idTheoLoaiSanPham = jsonObject.getInt("idloaisanpham");
-                            arrRauCu.add(new SanPham(id, tenRauCu, giaRauCu, anhRauCu, moTa, idTheoLoaiSanPham));
+                            soLuong = jsonObject.getInt("soluong");
+                            arrRauCu.add(new SanPham(id, tenRauCu, giaRauCu, anhRauCu, moTa, idTheoLoaiSanPham,soLuong));
                             rauCuAdapter.notifyDataSetChanged();
                         }
                     } catch (JSONException e) {

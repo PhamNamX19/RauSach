@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 import nam.com.rausach.R;
 import nam.com.rausach.adapter.SanPhamAdapter;
-import nam.com.rausach.models.PostSearch;
+import nam.com.rausach.controller.PostSearch;
 import nam.com.rausach.models.SanPham;
 import nam.com.rausach.utils.Constant;
 import nam.com.rausach.utils.Server;
@@ -67,7 +67,8 @@ public class FragmentSearch extends Fragment {
                                 jsonObject.getInt("giasanpham"),
                                 jsonObject.getString("hinhanhsanpham"),
                                 jsonObject.getString("motasanpham"),
-                                jsonObject.getInt("idloaisanpham"));
+                                jsonObject.getInt("idloaisanpham"),
+                                jsonObject.getInt("soluong"));
                         arrSearch.add(mSanPham);
                     }
                     if (jsonArray.length() == 0) {

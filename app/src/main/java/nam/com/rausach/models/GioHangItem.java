@@ -16,6 +16,19 @@ public class GioHangItem {
     }
 
     public GioHangItem(int id, String tenSanPham, String giaSanPham, String anhSanPham,
+                       String moTaSanPham, String loaiSanPham, int soLuong, int idCustomer, int idSanPham) {
+        this.id = id;
+        this.tenSanPham = tenSanPham;
+        this.giaSanPham = giaSanPham;
+        this.anhSanPham = anhSanPham;
+        this.moTaSanPham = moTaSanPham;
+        this.loaiSanPham = loaiSanPham;
+        this.soLuong = soLuong;
+        this.idCustomer = idCustomer;
+        this.idSanPham = idSanPham;
+    }
+
+    public GioHangItem(int id, String tenSanPham, String giaSanPham, String anhSanPham,
                        String moTaSanPham, String loaiSanPham, int soLuong, int idCustomer) {
         this.id = id;
         this.tenSanPham = tenSanPham;

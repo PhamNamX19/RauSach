@@ -95,6 +95,7 @@ public class TraiCayFragment extends Fragment {
                 String anhTraiCay = "";
                 String moTa = "";
                 int idTheoLoaiSanPham = 0;
+                int soLuong = 0;
                 if (response != null) {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
@@ -106,7 +107,8 @@ public class TraiCayFragment extends Fragment {
                             anhTraiCay = jsonObject.getString("hinhanhsanpham");
                             moTa = jsonObject.getString("motasanpham");
                             idTheoLoaiSanPham = jsonObject.getInt("idloaisanpham");
-                            arrTraiCay.add(new SanPham(id, tenTraiCay, giaTraiCay, anhTraiCay, moTa, idTheoLoaiSanPham));
+                            soLuong = jsonObject.getInt("idloaisanpham");
+                            arrTraiCay.add(new SanPham(id, tenTraiCay, giaTraiCay, anhTraiCay, moTa, idTheoLoaiSanPham,soLuong));
                             traiCayAdapter.notifyDataSetChanged();
                         }
                     } catch (JSONException e) {

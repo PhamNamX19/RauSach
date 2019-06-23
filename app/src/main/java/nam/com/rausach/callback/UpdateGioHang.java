@@ -1,4 +1,4 @@
-package nam.com.rausach.CallbackData;
+package nam.com.rausach.callback;
 
 import java.util.List;
 

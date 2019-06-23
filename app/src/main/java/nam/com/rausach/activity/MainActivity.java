@@ -400,6 +400,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String imgSanPham = "";
                     String moTaSanPham = "";
                     int idLoaiSP = 0;
+                    int soLuong = 0;
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject jsonObject = response.getJSONObject(i);
@@ -409,7 +410,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             imgSanPham = jsonObject.getString("hinhanhsanpham");
                             moTaSanPham = jsonObject.getString("motasanpham");
                             idLoaiSP = jsonObject.getInt("idloaisanpham");
-                            arrSanPhamMoi.add(new SanPham(idSanPham, tenSanPham, giaSanPham, imgSanPham, moTaSanPham, idLoaiSP));
+                            soLuong = jsonObject.getInt("soluong");
+                            arrSanPhamMoi.add(new SanPham(idSanPham, tenSanPham, giaSanPham, imgSanPham, moTaSanPham, idLoaiSP,soLuong));
                             sanPhamMoiAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -439,6 +441,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String imgSanPham = "";
                     String moTaSanPham = "";
                     int idLoaiSP = 0;
+                    int soLuong = 0;
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject jsonObject = response.getJSONObject(i);
@@ -448,7 +451,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             imgSanPham = jsonObject.getString("hinhanhsanpham");
                             moTaSanPham = jsonObject.getString("motasanpham");
                             idLoaiSP = jsonObject.getInt("idloaisanpham");
-                            arrSanPham.add(new SanPham(idSanPham, tenSanPham, giaSanPham, imgSanPham, moTaSanPham, idLoaiSP));
+                            soLuong = jsonObject.getInt("soluong");
+                            arrSanPham.add(new SanPham(idSanPham, tenSanPham, giaSanPham, imgSanPham, moTaSanPham, idLoaiSP,soLuong));
                             sanPhamAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();

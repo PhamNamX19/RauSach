@@ -100,6 +100,7 @@ public class GiaViFragment extends Fragment {
                 String anhGiaVi = "";
                 String moTa = "";
                 int idTheoLoaiSanPham = 0;
+                int soLuong = 0;
                 if (response != null) {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
@@ -111,7 +112,8 @@ public class GiaViFragment extends Fragment {
                             anhGiaVi = jsonObject.getString("hinhanhsanpham");
                             moTa = jsonObject.getString("motasanpham");
                             idTheoLoaiSanPham = jsonObject.getInt("idloaisanpham");
-                            arrGiaVi.add(new SanPham(id, tenGiaVi, giaGiaVi, anhGiaVi, moTa, idTheoLoaiSanPham));
+                            soLuong = jsonObject.getInt("soluong");
+                            arrGiaVi.add(new SanPham(id, tenGiaVi, giaGiaVi, anhGiaVi, moTa, idTheoLoaiSanPham,soLuong));
                             giaViAdapter.notifyDataSetChanged();
                         }
                     } catch (JSONException e) {

@@ -100,6 +100,7 @@ public class ThuyHaiSanFragment extends Fragment {
                 String anhThuyHaiSan= "";
                 String moTa = "";
                 int idTheoLoaiSanPham = 0;
+                int soLuong = 0;
                 if (response != null) {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
@@ -111,7 +112,8 @@ public class ThuyHaiSanFragment extends Fragment {
                             anhThuyHaiSan = jsonObject.getString("hinhanhsanpham");
                             moTa = jsonObject.getString("motasanpham");
                             idTheoLoaiSanPham = jsonObject.getInt("idloaisanpham");
-                            arrThuyHaiSan.add(new SanPham(id, tenThuyHaiSan, giaThuyHaiSan, anhThuyHaiSan, moTa, idTheoLoaiSanPham));
+                            soLuong = jsonObject.getInt("soluong");
+                            arrThuyHaiSan.add(new SanPham(id, tenThuyHaiSan, giaThuyHaiSan, anhThuyHaiSan, moTa, idTheoLoaiSanPham,soLuong));
                             thuyHaiSanAdapter.notifyDataSetChanged();
                         }
                     } catch (JSONException e) {
