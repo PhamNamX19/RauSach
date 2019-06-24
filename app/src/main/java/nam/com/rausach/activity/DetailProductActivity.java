@@ -98,12 +98,11 @@ public class DetailProductActivity extends AppCompatActivity {
                 int idUser = Integer.parseInt(MySharedPreferences
                         .getSharedPreferences(DetailProductActivity.this));
                 gioHangItem.setIdCustomer(idUser);
-                gioHangItem.setIdSanPham(sanPham.getId());
+                gioHangItem.setIdSanPham(sanPham.getIdTheoSanPham());
 
                 // get so luong product from cart
                 List<GioHangItem> gioHangItems = getSanPhamGioHang(String.valueOf(idUser));
                 int sizeGioHang = gioHangItems.size();
-                Log.d(TAG, "sizeGioHang: " + sizeGioHang);
 
                 boolean update = false;
                 String respond;
@@ -119,7 +118,6 @@ public class DetailProductActivity extends AppCompatActivity {
                         try {
                             respond = updateSPGioHang.execute(Server.pathUpdateSPGioHang,
                                     String.valueOf(soLuongTang), String.valueOf(idUpdate)).get();
-                            Log.d(TAG, "onClick: " + respond);
                             Toast.makeText(DetailProductActivity.this, "Sản phẩm đã được thêm vào giỏ hàng.", Toast.LENGTH_SHORT).show();
                         } catch (ExecutionException e) {
                             e.printStackTrace();
@@ -131,15 +129,14 @@ public class DetailProductActivity extends AppCompatActivity {
                 }
 
                 if (update == false) {
-                    Log.d(TAG, "onClick: " + update);
-
+                    Log.d(TAG, "Insert: ");
                     InsertSPGioHang insertSPGioHang = new InsertSPGioHang();
                     Gson gson = new Gson();
                     String sanPhamGioHangJson = gson.toJson(gioHangItem);
                     Log.d(TAG, "onClick: " + sanPhamGioHangJson);
                     try {
                         respond = insertSPGioHang.execute(Server.pathInsertSPGioHang, sanPhamGioHangJson).get();
-                        Log.d(TAG, "onClick: " + respond);
+                        Log.d(TAG, "respond: " + respond);
                         Toast.makeText(DetailProductActivity.this, "Sản phẩm đã được thêm vào giỏ hàng.", Toast.LENGTH_SHORT).show();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
@@ -171,7 +168,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 gioHangItem.setSoLuong(jsonObject.getInt("soLuong"));
                 gioHangItem.setIdCustomer(jsonObject.getInt("idCustomer"));
                 gioHangItem.setIdSanPham(jsonObject.getInt("idSanPham"));
-                Log.d(TAG, "getGioHangItems: "+ gioHangItem.toString());
+                Log.d(TAG, "getGioHangItems: " + gioHangItem.toString());
                 gioHangItems.add(gioHangItem);
             }
         } catch (ExecutionException e) {

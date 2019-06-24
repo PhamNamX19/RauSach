@@ -56,6 +56,7 @@ import nam.com.rausach.models.LoaiSanPham;
 import nam.com.rausach.models.SanPham;
 import nam.com.rausach.utils.CheckConection;
 import nam.com.rausach.utils.Constant;
+import nam.com.rausach.utils.MySharedPreferences;
 import nam.com.rausach.utils.Server;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -680,7 +681,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.imgShopping:
-
+                String idUser = MySharedPreferences.getSharedPreferences(MainActivity.this);
+                if (idUser != null) {
+                    Intent intent = new Intent(MainActivity.this, GioHangActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.imgLogout:
                 SharedPreferences preferences = getSharedPreferences(Constant.MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);

@@ -11,5 +11,5 @@ public class Server {
     public static String pathLogin="http://"+localhost+"/server/login.php";
     public static String pathRegister="http://"+localhost+"/server/register.php";
     public static String pathUpdateSPGioHang="http://"+localhost+"/server/updategiohang.php";
-    public static final String pathInsertSPGioHang = localhost+"/lhshop/insertgiohang.php";
+    public static String pathInsertSPGioHang = "http://"+localhost+"/server/insertgiohang.php";
 }

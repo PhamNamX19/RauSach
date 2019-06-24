@@ -62,6 +62,7 @@ public class GioHangActivity extends AppCompatActivity implements UpdateGioHang 
     private void setGioHang(){
         GetSanPhamGioHangApi getSanPhamGioHangApi = new GetSanPhamGioHangApi();
         String idUser = MySharedPreferences.getSharedPreferences(GioHangActivity.this);
+        Log.d(TAG, "setGioHang: + idUser "+ idUser);
         int tongTien = 0;
 
         try {
@@ -82,8 +83,9 @@ public class GioHangActivity extends AppCompatActivity implements UpdateGioHang 
                 gioHangItem.setSoLuong(jsonObject.getInt("soLuong"));
                 gioHangItem.setIdCustomer(jsonObject.getInt("idCustomer"));
                 gioHangItem.setIdSanPham(jsonObject.getInt("idSanPham"));
-                Log.d(TAG, "getGioHangItems: "+ gioHangItem.toString());
+                Log.d(TAG, "getGioHangItems: "+ apiGioHang);
                 gioHangItems.add(gioHangItem);
+                Log.d(TAG, "setGioHang: size "+gioHangItems.size());
                 // get tong tien
                 tongTien += Integer.parseInt(gioHangItem.getGiaSanPham())* gioHangItem.getSoLuong();
             }

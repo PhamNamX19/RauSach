@@ -38,10 +38,9 @@ public class InsertSPGioHang extends AsyncTask<String, Void, String> {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line = "";
-            while ((line = bufferedReader.readLine()) != null){
+            while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
